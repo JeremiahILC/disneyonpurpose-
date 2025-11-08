@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disney on Purpose - Seeking the Kingdom in the Magic Kingdom</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #e0f2fe 0%, #fce7f3 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #7c3aed;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ddd6fe 0%, #fecaca 50%, #fde68a 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #5b21b6;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.8rem;
+            color: #7c3aed;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+        }
+
+        /* Family Photo Section */
+        .family-intro {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%);
+        }
+
+        .family-intro .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .family-photo-placeholder {
+            background: linear-gradient(135deg, #c7d2fe, #fbcfe8);
+            height: 400px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #7c3aed;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .family-content h2 {
+            font-size: 2.5rem;
+            color: #5b21b6;
+            margin-bottom: 1.5rem;
+        }
+
+        .family-content p {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .features .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            color: #5b21b6;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f0f9ff, #fef3c7);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #7c3aed;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        /* Tips Section */
+        .tips-preview {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #ddd6fe 0%, #fbcfe8 100%);
+        }
+
+        .tips-preview .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .tips-preview h2 {
+            font-size: 2.5rem;
+            color: #5b21b6;
+            margin-bottom: 1.5rem;
+        }
+
+        .tips-preview p {
+            font-size: 1.2rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .tip-card h4 {
+            color: #7c3aed;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-card p {
+            color: #6b7280;
+            font-size: 1rem;
+        }
+
+        /* Social Media Section */
+        .connect {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #fef3c7 0%, #e0f2fe 100%);
+            text-align: center;
+        }
+
+        .connect .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .connect h2 {
+            font-size: 2.5rem;
+            color: #5b21b6;
+            margin-bottom: 1.5rem;
+        }
+
+        .connect p {
+            font-size: 1.2rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e1b4b, #5b21b6);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            color: #e0e7ff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.3rem;
+            }
+
+            .family-intro .container {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .feature-grid,
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Disney on Purpose</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#tips">Tips & Guides</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#connect">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Disney on Purpose</h1>
+            <p class="tagline">Seeking the Kingdom in the Magic Kingdom</p>
+            <p>Disney doesn't have to be overwhelming and exhausting. Discover how our family experiences the magic with rest, love, and faith—demonstrating the fruit of the Holy Spirit while creating intentional memories together.</p>
+            <a href="#about" class="cta-button">Start Your Journey</a>
+        </div>
+    </section>
+
+    <!-- Family Intro Section -->
+    <section class="family-intro" id="about">
+        <div class="container">
+            <div class="family-photo-placeholder">
+                📸 Your Family Photo Here
+            </div>
+            <div class="family-content">
+                <h2>Meet Our Family</h2>
+                <p>We're a family who loves Disney—but we've learned to experience it differently. Instead of rushing from ride to ride in exhaustion, we've discovered how to make our trips restful, meaningful, and centered on what matters most.</p>
+                <p>Our Disney adventures are opportunities to reflect on God's goodness, connect as a family, and practice patience, kindness, and joy—even in the midst of crowds and long lines.</p>
+                <p>We're here to share what we've learned so you can create your own purposeful Disney experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Our Approach to Disney</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🙏</div>
+                    <h3>Faith-Centered</h3>
+                    <p>We seek opportunities to reflect on God's character, worship together, and practice the fruit of the Spirit throughout our trip.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💛</div>
+                    <h3>Restful & Peaceful</h3>
+                    <p>No more frantic park-hopping. We embrace a slower pace that leaves room for rest, spontaneity, and genuine enjoyment.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Intentional Family Time</h3>
+                    <p>Every moment is an opportunity to connect, encourage one another, and build memories that point to what truly matters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Preview Section -->
+    <section class="tips-preview" id="tips">
+        <div class="container">
+            <h2>Practical Tips & Guides</h2>
+            <p>Ready to transform your Disney experience? Here are some ways we approach our trips with purpose and peace.</p>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>🌅 Start Slow</h4>
+                    <p>Skip rope drop and enjoy a peaceful morning devotional before heading to the parks.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>⏸️ Build in Breaks</h4>
+                    <p>Schedule downtime for pool days, resort exploration, or simply resting together.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>❤️ Practice Patience</h4>
+                    <p>Long lines become opportunities to practice kindness, patience, and conversation.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>📖 Evening Reflections</h4>
+                    <p>End each day sharing what you're grateful for and where you saw God at work.</p>
+                </div>
+            </div>
+            <a href="#blog" class="cta-button" style="margin-top: 2rem;">Read More Tips</a>
+        </div>
+    </section>
+
+    <!-- Connect Section -->
+    <section class="connect" id="connect">
+        <div class="container">
+            <h2>Join Our Community</h2>
+            <p>Follow along as we share more of our Disney journey, practical tips, and faith-filled adventures. We'd love to connect with you!</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon" title="Instagram">📷</a>
+                <a href="#" class="social-icon" title="YouTube">▶️</a>
+                <a href="#" class="social-icon" title="Facebook">👍</a>
+                <a href="#" class="social-icon" title="Pinterest">📌</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 1rem;">Subscribe to our newsletter for weekly encouragement and Disney tips!</p>
+            <a href="#" class="cta-button" style="margin-top: 1rem;">Subscribe Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Disney on Purpose. Seeking the Kingdom in the Magic Kingdom.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Not affiliated with The Walt Disney Company</p>
+        </div>
+    </footer>
+</body>
+</html>
